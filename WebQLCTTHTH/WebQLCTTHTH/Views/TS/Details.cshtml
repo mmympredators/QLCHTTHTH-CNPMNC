@@ -1,0 +1,75 @@
+﻿@model WebQLCTTHTH.Models.ThiSinh
+
+@{
+    ViewBag.Title = "Chi Tiết Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Thí Sinh</h2>
+
+<div>
+    <h4>Thí Sinh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ Tên Thí Sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTenTS)
+        </dd>
+
+        <dt>
+            Năm Sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamSinhTS)
+        </dd>
+
+        <dt>
+            Giới Tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GT)
+        </dd>
+
+        <dt>
+            Địa Chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiTS)
+        </dd>
+
+        <dt>
+            Quê Quán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QueQuanTS)
+        </dd>
+
+        <dt>
+            Hình Thí Sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhTS)
+        </dd>
+
+        <dt>
+            Nộp phí
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NopPhi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTS }) |
+    @Html.ActionLink("Trở về", "TS")
+</p>

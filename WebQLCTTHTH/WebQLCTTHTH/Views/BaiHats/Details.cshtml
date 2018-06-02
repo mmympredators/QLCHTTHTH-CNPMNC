@@ -1,0 +1,51 @@
+﻿@model WebQLCTTHTH.Models.BaiHat
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutTS.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BaiHat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenBH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nhac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChuDe.TenCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDe.TenCD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaBH }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

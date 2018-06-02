@@ -1,0 +1,43 @@
+﻿@model WebQLCTTHTH.Models.NhaTaiTro
+
+@{
+    ViewBag.Title = "Chi tiết Nhà Tài Trợ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Nhà Tài Trợ</h2>
+
+<div>
+    <h4>Nhà Tài Trợ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Nhà Tài Trợ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNTT)
+        </dd>
+
+        <dt>
+            Địa Chỉ Nhà Tài Trợ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiNTT)
+        </dd>
+
+        <dt>
+            Email Nhà Tài Trợ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailNTT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "NTTEdit", new { id = Model.MaNTT }) |
+    @Html.ActionLink("Trở về", "NTT")
+</p>

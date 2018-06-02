@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.NhaTaiTro>
+
+@using WebQLCTTHTH.Models;
+@{
+    ViewBag.Title = "Nhà Tài Trợ";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Nhà Tài Trợ</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "NTTCreate")
+</p>
+<table id="table" class="display">
+    <thead>
+    <tr>
+        <th>
+            Tên nhà tài trợ
+        </th>
+        <th>
+            Địa chỉ nhà tài trợ
+        </th>
+        <th>
+            Email nhà tài trợ
+        </th>
+        <th></th>
+    </tr>
+        </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNTT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChiNTT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailNTT)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "NTTEdit", new { id = item.MaNTT }) |
+                @Html.ActionLink("Chi Tiết", "NTTDetails", new { id = item.MaNTT }) |
+                @Html.ActionLink("Xóa", "NTTDelete", new { id = item.MaNTT })
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>
+
+@*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("NTT", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>*@

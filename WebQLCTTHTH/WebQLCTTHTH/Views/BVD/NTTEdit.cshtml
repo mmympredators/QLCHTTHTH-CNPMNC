@@ -1,0 +1,42 @@
+﻿@model WebQLCTTHTH.Models.NhaTaiTro
+@{
+    ViewBag.Title = "NTTEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>NTTEdit</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.MaNTT)
+    <div class="form-horizontal">
+        <h4>Nhà Tài Trợ</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p>Tên Nhà Tài Trợ</p>
+            <div class="col-md-10">
+                <input type="text" name="TenNTT" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <p>Địa Chỉ Nhà Tài Trợ</p>
+            <div class="col-md-10">
+                <input type="text" name="DiaChiNTT" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <p>Email Nhà Tài Trợ</p>
+            <div class="col-md-10">
+                <input type="email" name="EmailNTT" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "NTT")
+</div>

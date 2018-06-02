@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLCTTHTHModelStoreContainer" CdmEntityContainer="QLCTTHTHEntities1">
+    <EntitySetMapping Name="BaiHats">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.BaiHat">
+        <MappingFragment StoreEntitySet="BaiHat">
+          <ScalarProperty Name="MaBH" ColumnName="MaBH" />
+          <ScalarProperty Name="TenBH" ColumnName="TenBH" />
+          <ScalarProperty Name="Nhac" ColumnName="Nhac" />
+          <ScalarProperty Name="Loi" ColumnName="Loi" />
+          <ScalarProperty Name="Ma_CD" ColumnName="Ma_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChuDes">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.ChuDe">
+        <MappingFragment StoreEntitySet="ChuDe">
+          <ScalarProperty Name="MaCD" ColumnName="MaCD" />
+          <ScalarProperty Name="TenCD" ColumnName="TenCD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTTTDTs">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.CTTTDT">
+        <MappingFragment StoreEntitySet="CTTTDT">
+          <ScalarProperty Name="LT" ColumnName="LT" />
+          <ScalarProperty Name="Ma_NTT" ColumnName="Ma_NTT" />
+          <ScalarProperty Name="SoTienTaiTro" ColumnName="SoTienTaiTro" />
+          <ScalarProperty Name="HinhThuQuangCao" ColumnName="HinhThuQuangCao" />
+          <ScalarProperty Name="LoaiQuangCao" ColumnName="LoaiQuangCao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTVT_DT">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.CTVT_DT">
+        <MappingFragment StoreEntitySet="CTVT_DT">
+          <ScalarProperty Name="Ma_VT" ColumnName="Ma_VT" />
+          <ScalarProperty Name="LT" ColumnName="LT" />
+          <ScalarProperty Name="DiaDiemThi" ColumnName="DiaDiemThi" />
+          <ScalarProperty Name="ThoiGianThi" ColumnName="ThoiGianThi" />
+          <ScalarProperty Name="DiaDiemTap" ColumnName="DiaDiemTap" />
+          <ScalarProperty Name="ThoiGianTap" ColumnName="ThoiGianTap" />
+          <ScalarProperty Name="Ma_GT" ColumnName="Ma_GT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTVT_TS">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.CTVT_TS">
+        <MappingFragment StoreEntitySet="CTVT_TS">
+          <ScalarProperty Name="Ma_VT" ColumnName="Ma_VT" />
+          <ScalarProperty Name="SBD" ColumnName="SBD" />
+          <ScalarProperty Name="BaiHatBB" ColumnName="BaiHatBB" />
+          <ScalarProperty Name="DiemBHBB" ColumnName="DiemBHBB" />
+          <ScalarProperty Name="BaiHatTC" ColumnName="BaiHatTC" />
+          <ScalarProperty Name="DiemBHTC" ColumnName="DiemBHTC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DotThis">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.DotThi">
+        <MappingFragment StoreEntitySet="DotThi">
+          <ScalarProperty Name="LanThi" ColumnName="LanThi" />
+          <ScalarProperty Name="NamThi" ColumnName="NamThi" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiaiThuongs">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.GiaiThuong">
+        <MappingFragment StoreEntitySet="GiaiThuong">
+          <ScalarProperty Name="MaGT" ColumnName="MaGT" />
+          <ScalarProperty Name="TenGiaiThuong" ColumnName="TenGiaiThuong" />
+          <ScalarProperty Name="SoTienThuong" ColumnName="SoTienThuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaTaiTroes">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.NhaTaiTro">
+        <MappingFragment StoreEntitySet="NhaTaiTro">
+          <ScalarProperty Name="MaNTT" ColumnName="MaNTT" />
+          <ScalarProperty Name="TenNTT" ColumnName="TenNTT" />
+          <ScalarProperty Name="DiaChiNTT" ColumnName="DiaChiNTT" />
+          <ScalarProperty Name="EmailNTT" ColumnName="EmailNTT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThiSinhs">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.ThiSinh">
+        <MappingFragment StoreEntitySet="ThiSinh">
+          <ScalarProperty Name="MaTS" ColumnName="MaTS" />
+          <ScalarProperty Name="HoTenTS" ColumnName="HoTenTS" />
+          <ScalarProperty Name="NamSinhTS" ColumnName="NamSinhTS" />
+          <ScalarProperty Name="GT" ColumnName="GT" />
+          <ScalarProperty Name="DiaChiTS" ColumnName="DiaChiTS" />
+          <ScalarProperty Name="QueQuanTS" ColumnName="QueQuanTS" />
+          <ScalarProperty Name="HinhTS" ColumnName="HinhTS" />
+          <ScalarProperty Name="NopPhi" ColumnName="NopPhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VongThis">
+      <EntityTypeMapping TypeName="QLCTTHTHModel.VongThi">
+        <MappingFragment StoreEntitySet="VongThi">
+          <ScalarProperty Name="MaVT" ColumnName="MaVT" />
+          <ScalarProperty Name="TenVT" ColumnName="TenVT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLCTTHTHModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLCTTHTHModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLCTTHTHModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="QLCTTHTHModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLCTTHTHModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="QLCTTHTHModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QLCTTHTHModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="QLCTTHTHModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="QLCTTHTHModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

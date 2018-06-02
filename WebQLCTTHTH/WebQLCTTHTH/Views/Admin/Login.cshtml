@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+<h2 style="text-align:center">DangNhap</h2>
+
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <h4 style="color: red; text-align: center">@ViewBag.ThongBao</h4>
+        <tr>
+            <td>
+                EMAIL ADDRESS
+            </td>
+            <td>
+                <input type="text" name="username" id="email">
+            </td>
+            @ViewData["Loi1"]
+        </tr>
+        <tr>
+            <td>
+                PASSWORD
+            </td>
+            <td>
+                <input type="password" name="password" id="password">
+            </td>
+            @ViewData["Loi2"]
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="remember" id="remember">
+            </td>
+            <td>
+                <label for="remember">
+                    Remember me for 14 days
+                </label>
+            </td>
+        </tr>
+        <tr class="p-container">
+            <td>
+                <label>
+                    Forgot password ?
+                </label>
+            </td>
+            <td>
+                <input type="submit" name="go" id="go" value="Log in">
+            </td>
+        </tr>
+        <div>
+        </div>
+    }
+</table>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body style="background:url('../../Content/thevoicecoach.jpg')">
+    <div>
+    </div>
+</body>
+</html>

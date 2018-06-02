@@ -1,0 +1,82 @@
+﻿@model WebQLCTTHTH.Models.CTVT_DT
+
+@{
+    ViewBag.Title = "Xóa Chi tiết Vòng Thi - Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Chi tiết Vòng Thi - Đợt Thi</h2>
+
+<h3>Bạn có muốn xóa chi tiết vòng thi - đợt thi này không?</h3>
+<div>
+    <h4>Chi tiết Vòng Thi - Đợt Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Vòng Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VongThi.TenVT)
+        </dd>
+
+        <dt>
+            Năm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DotThi.NamThi)
+        </dd>
+
+        <dt>
+            Địa Điểm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaDiemThi)
+        </dd>
+
+        <dt>
+            Thời Gian Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianThi)
+        </dd>
+
+        <dt>
+            Địa Điểm Tập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaDiemTap)
+        </dd>
+
+        <dt>
+            Thời Gian Tập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianTap)
+        </dd>
+
+        <dt>
+            Tên Giải Thưởng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaiThuong.TenGiaiThuong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "CTVT_DT")
+        </div>
+    }
+</div>

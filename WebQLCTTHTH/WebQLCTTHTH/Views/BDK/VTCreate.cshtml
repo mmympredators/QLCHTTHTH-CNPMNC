@@ -1,0 +1,36 @@
+﻿@model WebQLCTTHTH.Models.VongThi
+
+@{
+    ViewBag.Title = "Tạo mới Vòng Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Vòng Thi</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Vòng Thi</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p>Tên Vòng Thi</p>
+            <div class="col-md-10">
+                <input type="text" name="TenVT" required>
+                @Html.ValidationMessageFor(model => model.TenVT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về", "VT")
+</div>

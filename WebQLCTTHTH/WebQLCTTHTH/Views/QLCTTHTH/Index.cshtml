@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.ThiSinh>
+@{
+    ViewBag.Title = "Quản lý cuộc thi tiếng hát truyền hình";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<br />
+<div style="position:relative">
+    <h2 style="text-align:center;font-weight:900;text-transform:uppercase;font-family: 'Noto Sans', sans-serif;font-size:40px">Hình Ảnh Nổi Bật</h2>
+    <div style="border:1px inset gray;background-color:#d9dce0">
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="#" class="thumbnail">
+                    <img src="~/anhthevoice/mainpic.jpg" />
+
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <a href="#" class="thumbnail">
+                    <img src="~/anhthevoice/pic1.jpg" />
+
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a href="#" class="thumbnail">
+                    <img src="~/anhthevoice/pic2.jpg" />
+
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="#" class="thumbnail">
+
+
+                    <img src="~/anhthevoice/pic3.jpg" />
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="thumbnail">
+                    <img src="~/anhthevoice/pic4.jpg" />
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="#" class="thumbnail">
+
+                    <img src="~/anhthevoice/pic5.jpg" />
+                </a>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" style="margin:2% 45%">Xem Thêm</button>
+    </div>
+</div>
+<br />
+<div class="container-fluid">
+    <h2 style="text-align:center;font-weight:900;text-transform:uppercase;font-family: 'Noto Sans', sans-serif;font-size:40px">Thí Sinh Tiềm Năng</h2>
+    <div style="border:1px inset gray;padding:2em;background-color:#d9dce0">
+        <div class="row">
+            @foreach (var thisinh in Model)
+            {
+                <div class="col-lg-3 col-lg-3  col-lg-3 col-lg-3">
+                    <div class="thumbnail">
+                        <a href="@Url.Action("ChiTietThiSinh","QLCTTHTH", new { id=thisinh.MaTS})">
+                            <img alt="@thisinh.HoTenTS" src="~/Images/@thisinh.HinhTS" style="width:200px;height:150px" />
+                        </a>
+                    </div>
+                    <div>
+                        <br />
+                        <h4 style="text-align:center">@thisinh.HoTenTS</h4>
+                        <p></p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @Html.ActionLink("Xem Thêm", "DanhSachThiSinh", "QLCTTHTH", new { @class = "btn btn-primary", @style = "margin:2% 45%" })
+</div>
+<br />
+<br />
+<section class="the1">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5">
+                <h1 style="padding:0 12%">Đăng Kí Dự Tuyển</h1>
+                <div style="display:flex; justify-content:center; align-items: center;">
+                    <p href="#" style="font-weight:bold;font-size:20px;color:white">@Html.ActionLink("Đăng Ký", "Dangky", "Nguoidung")</p>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <p style="text-align:justify;padding-right:2em">
+                    Chương trình rất vui khi nhận được sự ủng hộ nồng nhiệt của khán giả trong suốt mùa 4 vừa qua cũng như mùa 5 sắp đến. Ban tổ chức sẽ xem xét đơn dự thi của thí sinh:
+
+                    Thí sinh phải điền đầy đủ thông tin như yêu cầu trong mẫu đăng ký.
+                    <br />
+                    Nếu thí sinh đủ tiêu chuẩn, thí sinh sẽ được đặt cách vào tham gia sơ tuyển vòng 2 mà không cần phải tham gia sơ tuyển vòng 1 khi chương trình tổ chức tuyển sinh trực tiếp. BTC sẽ có thông báo cụ thể đến thí sinh khi ngày thi trực tiếp gần đến.
+                    <br />
+                    Thông tin về Thời gian, địa điểm tổ chức Ngày tuyển sinh trực tiếp sẽ được cập nhật ngay khi có thông báo từ BTC.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<br /><br />
+<style>
+    section {
+        background-image: url("../../Content/pic6.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 50px 0px;
+        color: white;
+        width: 100%;
+        height: 250px;
+    }
+</style>

@@ -1,0 +1,59 @@
+﻿@model WebQLCTTHTH.Models.CTTTDT
+
+@{
+    ViewBag.Title = "Chi tiết Tài Trợ Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Tài Trợ Đợt Thi</h2>
+
+<div>
+    <h4>Chi tiết Tài Trợ Đợt Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Năm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DotThi.NamThi)
+        </dd>
+
+        <dt>
+            Tên Nhà Tài Trợ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaTaiTro.TenNTT)
+        </dd>
+
+        <dt>
+            Số Tiền Tài Trợ
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.SoTienTaiTro) VND
+        </dd>
+
+        <dt>
+            Hình Thức Quảng Cáo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhThuQuangCao)
+        </dd>
+
+        <dt>
+            Loại Quảng Cáo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiQuangCao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaCTTTDT }) |
+    @Html.ActionLink("Trở về", "CTTTDT")
+</p>

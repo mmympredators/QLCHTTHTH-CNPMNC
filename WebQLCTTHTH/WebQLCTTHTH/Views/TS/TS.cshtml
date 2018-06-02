@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.ThiSinh>
+
+@using WebQLCTTHTH.Models;
+
+@{
+    ViewBag.Title = "Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center;font-weight:bold;color:red">Thí Sinh</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới Thí Sinh", "Create")
+</p>
+<table id="table" class="display">
+    <thead>
+        <tr>
+            <th style="width:200px">
+                Họ Tên Thí Sinh
+            </th>
+            <th>
+                Năm Sinh
+            </th>
+            <th>
+                Giới tính
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Quê quán
+            </th>
+            <th>
+                Hình đại diện
+            </th>
+            <th>
+                Nộp phí
+            </th>
+            <th>
+                User
+            </th>
+            <th>
+                Password
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoTenTS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamSinhTS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChiTS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QueQuanTS)
+                </td>
+                <td>
+                    <img src="@Url.Content("~/Images/"+item.HinhTS)" width="120" height="120" alt="Hình thí sinh">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NopPhi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDLogin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pass)
+                </td>
+                <td>
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaTS }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaTS }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaTS })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

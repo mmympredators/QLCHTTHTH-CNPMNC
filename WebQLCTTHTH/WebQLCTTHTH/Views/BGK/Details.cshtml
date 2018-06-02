@@ -1,0 +1,27 @@
+﻿@model WebQLCTTHTH.Models.ChuDe
+
+@{
+    ViewBag.Title = "Chi tiết Chủ Đề";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Chủ Đề</h2>
+
+<div>
+    <h4>Chủ Đề</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Chủ Đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaCD }) |
+    @Html.ActionLink("Trở về", "ChuDe")
+</p>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.CTVT_DT>
+
+@using WebQLCTTHTH.Models;
+
+@{
+    ViewBag.Title = "Chi tiết vòng thi - đợt thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết vòng thi - đợt thi</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "CTVT_DTCreate")
+</p>
+<table id="table" class="display">
+    <thead>
+        <tr>
+            <th>
+                Tên Vòng Thi
+            </th>
+            <th>
+                Năm Thi
+            </th>
+            <th>
+                Địa Điểm Thi
+            </th>
+            <th>
+                Thời Gian Thi
+            </th>
+            <th>
+                Địa Điểm Tập
+            </th>
+            <th>
+                Thời Gian Tập
+            </th>
+            <th>
+                Tên Giải Thưởng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VongThi.TenVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DotThi.NamThi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaDiemThi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianThi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaDiemTap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianTap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaiThuong.TenGiaiThuong)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "CTVT_DTEdit", new { id = item.MaCTVT_DT }) |
+                @Html.ActionLink("Chi tiêt", "CTVT_DTDetails", new { id = item.MaCTVT_DT }) |
+                @Html.ActionLink("Xóa", "CTVT_DTDelete", new { id = item.MaCTVT_DT })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("CTVT_DT", new { page = page }))
+</div>
+<style>
+
+    .MenuTrang li {
+        display: inline;
+    }
+</style>*@

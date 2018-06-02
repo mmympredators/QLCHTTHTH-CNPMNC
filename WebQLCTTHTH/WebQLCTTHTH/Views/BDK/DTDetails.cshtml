@@ -1,0 +1,35 @@
+﻿@model WebQLCTTHTH.Models.DotThi
+
+@{
+    ViewBag.Title = "Chi Tiết Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Đợt Thi</h2>
+
+<div>
+    <h4>Đợt Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Năm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamThi)
+        </dd>
+
+        <dt>
+            Nội Dung
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "DTEdit", new { id = Model.LanThi }) |
+    @Html.ActionLink("Trở về", "DT")
+</p>

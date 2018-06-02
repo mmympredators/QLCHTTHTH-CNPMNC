@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.BaiHat>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutBGK.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenBH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nhac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChuDe.TenCD)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenBH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nhac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Loi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChuDe.TenCD)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaBH }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaBH }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaBH })
+        </td>
+    </tr>
+}
+
+</table>

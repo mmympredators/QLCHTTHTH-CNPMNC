@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.VongThi>
+
+@using WebQLCTTHTH.Models;
+@{
+    ViewBag.Title = "Vòng Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Vòng Thi</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "VTCreate")
+</p>
+<table id="table" class="display">
+    <thead>
+    <tr>
+        <th>
+            Vòng Thi
+        </th>
+        <th></th>
+    </tr>
+        </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVT)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "VTEdit", new { id = item.MaVT }) |
+                @Html.ActionLink("Chi Tiết", "VTDetails", new { id = item.MaVT })
+                @*@Html.ActionLink("Xóa", "VTDelete", new { id = item.MaVT })*@
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>
+@*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("VT", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>*@

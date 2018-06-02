@@ -1,0 +1,74 @@
+﻿@model WebQLCTTHTH.Models.CTVT_TS
+
+@{
+    ViewBag.Title = "Xóa Chi tiết Vòng Thi - Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Chi tiết Vòng Thi - Thí Sinh</h2>
+
+<h3>Bạn có muốn xóa chi tiết vòng thi - thí sinh này không?</h3>
+<div>
+    <h4>Chi tiết Vòng Thi - Thí Sinh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Vòng Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VongThi.TenVT)
+        </dd>
+
+        <dt>
+            Họ Tên Thí Sinh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThiSinh.HoTenTS)
+        </dd>
+
+        <dt>
+            Bài Hát Bắt Buộc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaiHat.TenBH)
+        </dd>
+
+        <dt>
+            Điểm Bài Hát Bắt Buộc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemBHBB)
+        </dd>
+
+        <dt>
+            Bài Hát Tự Chọn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaiHat.TenBH)
+        </dd>
+
+        <dt>
+            Điểm Bài Hát Tự Chọn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiemBHTC)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "CTVT_TS")
+        </div>
+    }
+</div>

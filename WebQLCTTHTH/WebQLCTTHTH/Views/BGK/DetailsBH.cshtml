@@ -1,0 +1,51 @@
+﻿@model WebQLCTTHTH.Models.BaiHat
+
+@{
+    ViewBag.Title = "Chi Tiết Bài Hát";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Bài Hát</h2>
+
+<div>
+    <h4>Bài Hát</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Bài Hát
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBH)
+        </dd>
+
+        <dt>
+            Nhạc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhac)
+        </dd>
+
+        <dt>
+            Lời
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loi)
+        </dd>
+
+        <dt>
+            Tên Chủ Đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDe.TenCD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "EditBH", new { id = Model.MaBH }) |
+    @Html.ActionLink("Trở về", "BaiHat")
+</p>

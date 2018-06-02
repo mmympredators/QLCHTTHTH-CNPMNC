@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLCTTHTHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaiHat">
+    <Key>
+      <PropertyRef Name="MaBH" />
+    </Key>
+    <Property Name="MaBH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenBH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nhac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Loi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ma_CD" Type="Int32" />
+    <NavigationProperty Name="ChuDe" Relationship="Self.FK_BaiHat_ChuDe" FromRole="BaiHat" ToRole="ChuDe" />
+    <NavigationProperty Name="CTVT_TS" Relationship="Self.FK_CTVT_TS_BaiHat" FromRole="BaiHat" ToRole="CTVT_TS" />
+    <NavigationProperty Name="CTVT_TS1" Relationship="Self.FK_CTVT_TS_BaiHat1" FromRole="BaiHat" ToRole="CTVT_TS" />
+  </EntityType>
+  <EntityType Name="ChuDe">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BaiHats" Relationship="Self.FK_BaiHat_ChuDe" FromRole="ChuDe" ToRole="BaiHat" />
+  </EntityType>
+  <EntityType Name="CTTTDT">
+    <Key>
+      <PropertyRef Name="LT" />
+      <PropertyRef Name="Ma_NTT" />
+    </Key>
+    <Property Name="LT" Type="Int32" Nullable="false" />
+    <Property Name="Ma_NTT" Type="Int32" Nullable="false" />
+    <Property Name="SoTienTaiTro" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="HinhThuQuangCao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiQuangCao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DotThi" Relationship="Self.FK_CTTTDT_DotThi" FromRole="CTTTDT" ToRole="DotThi" />
+    <NavigationProperty Name="NhaTaiTro" Relationship="Self.FK_CTTTDT_NhaTaiTro" FromRole="CTTTDT" ToRole="NhaTaiTro" />
+  </EntityType>
+  <EntityType Name="CTVT_DT">
+    <Key>
+      <PropertyRef Name="Ma_VT" />
+      <PropertyRef Name="LT" />
+    </Key>
+    <Property Name="Ma_VT" Type="Int32" Nullable="false" />
+    <Property Name="LT" Type="Int32" Nullable="false" />
+    <Property Name="DiaDiemThi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianThi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaDiemTap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianTap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ma_GT" Type="Int32" />
+    <NavigationProperty Name="DotThi" Relationship="Self.FK_CTVT_DT_DotThi" FromRole="CTVT_DT" ToRole="DotThi" />
+    <NavigationProperty Name="GiaiThuong" Relationship="Self.FK_CTVT_DT_GiaiThuong" FromRole="CTVT_DT" ToRole="GiaiThuong" />
+    <NavigationProperty Name="VongThi" Relationship="Self.FK_CTVT_DT_VongThi" FromRole="CTVT_DT" ToRole="VongThi" />
+  </EntityType>
+  <EntityType Name="CTVT_TS">
+    <Key>
+      <PropertyRef Name="Ma_VT" />
+      <PropertyRef Name="SBD" />
+    </Key>
+    <Property Name="Ma_VT" Type="Int32" Nullable="false" />
+    <Property Name="SBD" Type="Int32" Nullable="false" />
+    <Property Name="BaiHatBB" Type="Int32" />
+    <Property Name="DiemBHBB" Type="Int32" />
+    <Property Name="BaiHatTC" Type="Int32" />
+    <Property Name="DiemBHTC" Type="Int32" />
+    <NavigationProperty Name="BaiHat" Relationship="Self.FK_CTVT_TS_BaiHat" FromRole="CTVT_TS" ToRole="BaiHat" />
+    <NavigationProperty Name="BaiHat1" Relationship="Self.FK_CTVT_TS_BaiHat1" FromRole="CTVT_TS" ToRole="BaiHat" />
+    <NavigationProperty Name="ThiSinh" Relationship="Self.FK_CTVT_TS_ThiSinh" FromRole="CTVT_TS" ToRole="ThiSinh" />
+    <NavigationProperty Name="VongThi" Relationship="Self.FK_CTVT_TS_VongThi" FromRole="CTVT_TS" ToRole="VongThi" />
+  </EntityType>
+  <EntityType Name="DotThi">
+    <Key>
+      <PropertyRef Name="LanThi" />
+    </Key>
+    <Property Name="LanThi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NamThi" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTTTDTs" Relationship="Self.FK_CTTTDT_DotThi" FromRole="DotThi" ToRole="CTTTDT" />
+    <NavigationProperty Name="CTVT_DT" Relationship="Self.FK_CTVT_DT_DotThi" FromRole="DotThi" ToRole="CTVT_DT" />
+  </EntityType>
+  <EntityType Name="GiaiThuong">
+    <Key>
+      <PropertyRef Name="MaGT" />
+    </Key>
+    <Property Name="MaGT" Type="Int32" Nullable="false" />
+    <Property Name="TenGiaiThuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoTienThuong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTVT_DT" Relationship="Self.FK_CTVT_DT_GiaiThuong" FromRole="GiaiThuong" ToRole="CTVT_DT" />
+  </EntityType>
+  <EntityType Name="NhaTaiTro">
+    <Key>
+      <PropertyRef Name="MaNTT" />
+    </Key>
+    <Property Name="MaNTT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNTT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiNTT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EmailNTT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTTTDTs" Relationship="Self.FK_CTTTDT_NhaTaiTro" FromRole="NhaTaiTro" ToRole="CTTTDT" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ThiSinh">
+    <Key>
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="MaTS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTenTS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NamSinhTS" Type="DateTime" Precision="0" />
+    <Property Name="GT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiTS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QueQuanTS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HinhTS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NopPhi" Type="Boolean" />
+    <NavigationProperty Name="CTVT_TS" Relationship="Self.FK_CTVT_TS_ThiSinh" FromRole="ThiSinh" ToRole="CTVT_TS" />
+  </EntityType>
+  <EntityType Name="VongThi">
+    <Key>
+      <PropertyRef Name="MaVT" />
+    </Key>
+    <Property Name="MaVT" Type="Int32" Nullable="false" />
+    <Property Name="TenVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTVT_DT" Relationship="Self.FK_CTVT_DT_VongThi" FromRole="VongThi" ToRole="CTVT_DT" />
+    <NavigationProperty Name="CTVT_TS" Relationship="Self.FK_CTVT_TS_VongThi" FromRole="VongThi" ToRole="CTVT_TS" />
+  </EntityType>
+  <Association Name="FK_BaiHat_ChuDe">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="0..1" />
+    <End Role="BaiHat" Type="Self.BaiHat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="BaiHat">
+        <PropertyRef Name="Ma_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_BaiHat">
+    <End Role="BaiHat" Type="Self.BaiHat" Multiplicity="0..1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaiHat">
+        <PropertyRef Name="MaBH" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="BaiHatBB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_BaiHat1">
+    <End Role="BaiHat" Type="Self.BaiHat" Multiplicity="0..1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaiHat">
+        <PropertyRef Name="MaBH" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="BaiHatTC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTTTDT_DotThi">
+    <End Role="DotThi" Type="Self.DotThi" Multiplicity="1" />
+    <End Role="CTTTDT" Type="Self.CTTTDT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DotThi">
+        <PropertyRef Name="LanThi" />
+      </Principal>
+      <Dependent Role="CTTTDT">
+        <PropertyRef Name="LT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTTTDT_NhaTaiTro">
+    <End Role="NhaTaiTro" Type="Self.NhaTaiTro" Multiplicity="1" />
+    <End Role="CTTTDT" Type="Self.CTTTDT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTaiTro">
+        <PropertyRef Name="MaNTT" />
+      </Principal>
+      <Dependent Role="CTTTDT">
+        <PropertyRef Name="Ma_NTT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_DT_DotThi">
+    <End Role="DotThi" Type="Self.DotThi" Multiplicity="1" />
+    <End Role="CTVT_DT" Type="Self.CTVT_DT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DotThi">
+        <PropertyRef Name="LanThi" />
+      </Principal>
+      <Dependent Role="CTVT_DT">
+        <PropertyRef Name="LT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_DT_GiaiThuong">
+    <End Role="GiaiThuong" Type="Self.GiaiThuong" Multiplicity="0..1" />
+    <End Role="CTVT_DT" Type="Self.CTVT_DT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaiThuong">
+        <PropertyRef Name="MaGT" />
+      </Principal>
+      <Dependent Role="CTVT_DT">
+        <PropertyRef Name="Ma_GT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_DT_VongThi">
+    <End Role="VongThi" Type="Self.VongThi" Multiplicity="1" />
+    <End Role="CTVT_DT" Type="Self.CTVT_DT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VongThi">
+        <PropertyRef Name="MaVT" />
+      </Principal>
+      <Dependent Role="CTVT_DT">
+        <PropertyRef Name="Ma_VT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_ThiSinh">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="MaTS" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_VongThi">
+    <End Role="VongThi" Type="Self.VongThi" Multiplicity="1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VongThi">
+        <PropertyRef Name="MaVT" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="Ma_VT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLCTTHTHEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaiHats" EntityType="Self.BaiHat" />
+    <EntitySet Name="ChuDes" EntityType="Self.ChuDe" />
+    <EntitySet Name="CTTTDTs" EntityType="Self.CTTTDT" />
+    <EntitySet Name="CTVT_DT" EntityType="Self.CTVT_DT" />
+    <EntitySet Name="CTVT_TS" EntityType="Self.CTVT_TS" />
+    <EntitySet Name="DotThis" EntityType="Self.DotThi" />
+    <EntitySet Name="GiaiThuongs" EntityType="Self.GiaiThuong" />
+    <EntitySet Name="NhaTaiTroes" EntityType="Self.NhaTaiTro" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ThiSinhs" EntityType="Self.ThiSinh" />
+    <EntitySet Name="VongThis" EntityType="Self.VongThi" />
+    <AssociationSet Name="FK_BaiHat_ChuDe" Association="Self.FK_BaiHat_ChuDe">
+      <End Role="ChuDe" EntitySet="ChuDes" />
+      <End Role="BaiHat" EntitySet="BaiHats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_BaiHat" Association="Self.FK_CTVT_TS_BaiHat">
+      <End Role="BaiHat" EntitySet="BaiHats" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_BaiHat1" Association="Self.FK_CTVT_TS_BaiHat1">
+      <End Role="BaiHat" EntitySet="BaiHats" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTTTDT_DotThi" Association="Self.FK_CTTTDT_DotThi">
+      <End Role="DotThi" EntitySet="DotThis" />
+      <End Role="CTTTDT" EntitySet="CTTTDTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTTTDT_NhaTaiTro" Association="Self.FK_CTTTDT_NhaTaiTro">
+      <End Role="NhaTaiTro" EntitySet="NhaTaiTroes" />
+      <End Role="CTTTDT" EntitySet="CTTTDTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_DT_DotThi" Association="Self.FK_CTVT_DT_DotThi">
+      <End Role="DotThi" EntitySet="DotThis" />
+      <End Role="CTVT_DT" EntitySet="CTVT_DT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_DT_GiaiThuong" Association="Self.FK_CTVT_DT_GiaiThuong">
+      <End Role="GiaiThuong" EntitySet="GiaiThuongs" />
+      <End Role="CTVT_DT" EntitySet="CTVT_DT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_DT_VongThi" Association="Self.FK_CTVT_DT_VongThi">
+      <End Role="VongThi" EntitySet="VongThis" />
+      <End Role="CTVT_DT" EntitySet="CTVT_DT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_ThiSinh" Association="Self.FK_CTVT_TS_ThiSinh">
+      <End Role="ThiSinh" EntitySet="ThiSinhs" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_VongThi" Association="Self.FK_CTVT_TS_VongThi">
+      <End Role="VongThi" EntitySet="VongThis" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(QLCTTHTHModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(QLCTTHTHModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

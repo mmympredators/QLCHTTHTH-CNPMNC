@@ -1,0 +1,101 @@
+﻿@model WebQLCTTHTH.Models.ThiSinh
+
+@{
+    ViewBag.Title = "Tạo Mới Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tạo Mới Thí Sinh</h2>
+
+@using (Html.BeginForm("Create", "TS", FormMethod.Post, new {@enctype="multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Thí Sinh</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <p>Họ Tên Thí Sinh</p>
+        <div class="col-md-10 ">
+            <input type="text" name="HoTenTS" required>
+            @Html.ValidationMessageFor(model => model.HoTenTS, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Năm Sinh</p>
+        <div class="col-md-10">
+            <input type="date" name="NamSinhTS" required>
+            @Html.ValidationMessageFor(model => model.NamSinhTS, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Giới Tính</p>
+        <div class="col-md-10">
+            <input type="text" name="GT" list="GioiTinh" required>
+            <datalist id="GioiTinh">
+                <option value="Nam">
+                <option value="Nữ">
+            </datalist>
+            @Html.ValidationMessageFor(model => model.GT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Địa Chỉ</p>
+        <div class="col-md-10">
+            <input type="text" name="DiaChiTS" required>
+            @Html.ValidationMessageFor(model => model.DiaChiTS, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Quê Quán</p>
+        <div class="col-md-10">
+            <input type="text" name="QueQuanTS" required>
+            @Html.ValidationMessageFor(model => model.QueQuanTS, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Hình Thí Sinh</p>
+        <div class="col-md-10">
+            <input type="file" name="fileupload" required/>
+            @ViewBag.Thongbao
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Nộp Phí</p>
+        <div class="col-md-10">
+            <input type="text" name="NopPhi" list="NopPhi" required>
+            <datalist id="NopPhi">
+                <option value="True">
+                <option value="False">
+            </datalist>
+            @Html.ValidationMessageFor(model => model.NopPhi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group w3-hide">
+        <p>User</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IDLogin, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IDLogin, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group w3-hide">
+        <p>Password</p>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Trở về", "TS")
+</div>

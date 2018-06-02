@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.dataTables.js"></script>
+    <link href="~/Content/jquery.dataTables.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style_admin.css" rel="stylesheet" />
+    <link href="~/Content/w3.css" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable()
+        }); S
+    </script>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Trang Quản Lý</a>
+        <div class="dropdown">
+            <button class="dropbtn">Cuộc thi</button>
+            <div class="dropdown-content">
+                <a href="#">@Html.ActionLink("Đợt Thi", "DT", "BDK")</a>
+                <a href="#">@Html.ActionLink("Giải Thưởng", "GT", "BDK")</a>
+                <a href="#">@Html.ActionLink("Vòng Thi", "VT", "BDK")</a>
+                <a href="#">@Html.ActionLink("Địa Điểm", "CTVT_DT", "BDK")</a>
+            </div>
+        </div>
+        <a href="#">@Html.ActionLink("Thí Sinh", "TS", "TS")</a>
+        <div class="dropdown">
+            <button class="dropbtn">Âm nhạc</button>
+            <div class="dropdown-content">
+                <a href="#">@Html.ActionLink("Bài Hát", "BaiHat", "BGK")</a>
+                <a href="#">@Html.ActionLink("Chủ Đề", "ChuDe", "BGK")</a>
+            </div>
+        </div>
+        <a href="#">@Html.ActionLink("Nhà Tài Trợ", "NTT", "BVD")</a>
+        <a href="#">@Html.ActionLink("Điểm thi", "CTVT_TS", "BGK")</a>
+        <a href="#">@Html.ActionLink("Tài trợ Vòng Thi", "CTTTDT", "BVD")</a>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

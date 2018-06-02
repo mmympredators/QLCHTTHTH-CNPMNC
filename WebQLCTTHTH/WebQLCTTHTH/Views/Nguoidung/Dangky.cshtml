@@ -1,0 +1,90 @@
+﻿@model WebQLCTTHTH.Models.ThiSinh
+@{
+    ViewBag.Title = "Dangky";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Dangky</h2>
+
+@using (Html.BeginForm(
+    ))
+{
+    @Html.ValidationSummary(true)
+
+<fieldset>
+    <legend>ThiSinh</legend>
+    @*Họ tên*@
+    <div class="editor-label">
+        <h4>
+            Họ tên
+        </h4>
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("HoTenTS")
+    </div>
+    @ViewData["Loi5"]
+    @*Họ tên KH*@
+    <div class="editor-label">
+        <h4>
+            IDLogin
+        </h4>
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("IDLogin")
+    </div>
+    @ViewData["Loi1"]
+    @*Mật khẩu*@
+    <div class="editor-label">
+        <h4>
+            Nhập mật khẩu
+        </h4>
+    </div>
+    <div class="editor-field">
+        @Html.Password("Pass")
+    </div>
+    @ViewData["Loi3"]
+    @*Quê quán*@
+    <div class="editor-label">
+        <h4>
+            Quê quán
+        </h4>
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("QueQuanTS")
+    </div>
+    @ViewData["Loi4"]
+    @*Giới tính*@
+    <div class="editor-label">
+        <h4>
+            Giới tính TS
+        </h4>
+    </div>
+    <div class="editor-field">
+        <input type="text" name="GT" list="gioitinh" required>
+        <datalist id="gioitinh">
+            <option value="Nam">
+            <option value="Nữ">
+        </datalist>
+ 
+        </div>
+    @ViewData["Loi2"]
+    @*Đỉa chỉ KH*@
+    <div class="editor-label">
+        <h4>
+            Địa chỉ TS
+        </h4>
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("DiachiTS")
+    </div>
+
+    <div>
+        <p>
+            <input type="submit" value="Đăng Ký" /> |
+            <button>
+                @Html.ActionLink("Quay về", "QLCTTHTH")
+            </button>
+        </p>
+    </div>
+</fieldset>
+}

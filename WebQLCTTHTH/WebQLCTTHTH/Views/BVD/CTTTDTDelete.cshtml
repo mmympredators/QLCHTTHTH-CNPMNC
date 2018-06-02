@@ -1,0 +1,65 @@
+﻿@model WebQLCTTHTH.Models.CTTTDT
+
+@{
+    ViewBag.Title = "Xóa Chi tiết Tài Trợ Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Chi tiết Tài Trợ Đợt Thi</h2>
+
+<h3>Bạn có muốn xóa chi tiết Tài Trợ Đợt Thi?</h3>
+<div>
+    <h4>Chi tiết Tài Trợ Đợt Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Năm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DotThi.NamThi)
+        </dd>
+
+        <dt>
+            Nhà Tài Trợ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaTaiTro.TenNTT)
+        </dd>
+
+        <dt>
+            Số Tiền Nhà Tài Trợ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienTaiTro)
+        </dd>
+
+        <dt>
+            Hình Thức Quảng Cáo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhThuQuangCao)
+        </dd>
+
+        <dt>
+            Loại Quảng Cáo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiQuangCao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "CTTTDT")
+        </div>
+    }
+</div>

@@ -1,0 +1,76 @@
+﻿@model WebQLCTTHTH.Models.CTVT_TS
+
+@{
+    ViewBag.Title = "Chỉnh sửa chi tiết Vòng Thi - Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chỉnh sửa Chi tiết Vòng Thi - Thí Sinh</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.MaCTVT_TS)
+    <div class="form-horizontal">
+        <h4>Chi tiết Vòng Thi - Thí Sinh</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p>Mã Vòng Thi</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ma_VT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ma_VT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Số báo danh</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SBD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SBD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Bài Hát Bắt Buộc</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BaiHatBB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BaiHatBB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Điểm Bài Hát Bắt Buộc</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiemBHBB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiemBHBB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Bài Hát Tự Chọn</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BaiHatTC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BaiHatTC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Điểm Bài Hát Tự Chọn</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiemBHTC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiemBHTC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về", "CTVT_TS")
+</div>

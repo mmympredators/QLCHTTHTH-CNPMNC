@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.CTVT_TS>
+
+@using WebQLCTTHTH.Models;
+
+@{
+    ViewBag.Title = "Vòng Thi - Thí Sinh";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Vòng Thi - Thí Sinh</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "CTVT_TSCreate")
+</p>
+<table id="table" class="display">
+    <thead>
+    <tr>
+        <th>
+            Tên Vòng Thi
+        </th>
+        <th>
+            Họ Tên Thí Sinh
+        </th>
+        <th>
+            Bài hát bắt buộc
+        </th>
+        <th>
+            Điểm bài hát bắt buộc
+        </th>
+        <th>
+            Bài hát Tự chọn
+        </th>
+        <th>
+            Điểm bài hát tự chọn
+        </th>
+        <th></th>
+    </tr>
+        </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VongThi.TenVT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThiSinh.HoTenTS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaiHat.TenBH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiemBHBB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaiHat.TenBH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiemBHTC)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "CTVT_TSEdit", new { id = item.MaCTVT_TS }) |
+                @Html.ActionLink("Chi tiết", "CTVT_TSDetails", new { id = item.MaCTVT_TS }) |
+                @Html.ActionLink("Xóa", "CTVT_TSDelete", new { id = item.MaCTVT_TS })
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>
+
+@*Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("CTVT_TS", new { page = page }))
+</div>
+<style>
+
+    .MenuTrang li {
+        display: inline;
+    }
+</style>*@

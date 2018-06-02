@@ -1,0 +1,43 @@
+﻿@model WebQLCTTHTH.Models.ThiSinh
+
+@{
+    ViewBag.Title = "ChiTietThiSinh";
+    Layout = "~/Views/Shared/_LayoutTS.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:700" rel="stylesheet">
+
+<h2 style="text-align:center;font-weight:900;text-transform:uppercase;font-family: 'Noto Sans', sans-serif;font-size:40px">Thông Tin Thí Sinh</h2>
+<br />
+<div style="display: flex; justify-content: center; align-items:center; ">
+    <div style="width: 50% ;border-left: dotted 1px azure">
+        <img src="~/Images/@Model.HinhTS" style="width:100%" />
+    </div>
+</div>
+<br />
+<br />
+
+<table align="center" style="font-size:1.25em">
+    <tr style="height:40px">
+        <td style="width:150px">Tên Thí Sinh</td>
+        <td>@Html.DisplayFor(model => model.HoTenTS)</td>
+    </tr>
+    <tr style="height:40px">
+        <td style="width:150px">Năm Sinh</td>
+        <td>@Html.DisplayFor(model => model.NamSinhTS)</td>
+    </tr>
+    <tr style="height:40px">
+        <td style="width:150px">Giới Tính</td>
+        <td>@Html.DisplayFor(model => model.GT)</td>
+    </tr>
+    <tr style="height:40px">
+        <td style="width:150px">Địa Chỉ</td>
+        <td>@Html.DisplayFor(model => model.DiaChiTS)</td>
+    </tr>
+    <tr style="height:40px">
+        <td style="width:150px">Quê Quán</td>
+        <td>@Html.DisplayFor(model => model.DiaChiTS)</td>
+    </tr>
+
+</table>
+<br /><br />

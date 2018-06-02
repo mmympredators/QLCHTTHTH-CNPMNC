@@ -1,0 +1,35 @@
+﻿@model WebQLCTTHTH.Models.GiaiThuong
+
+@{
+    ViewBag.Title = "Chi Tiết Giải Thưởng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Giải Thưởng</h2>
+
+<div>
+    <h4>Giải Thưởng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Giải Thưởng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGiaiThuong)
+        </dd>
+
+        <dt>
+            Số Tiền Thưởng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienThuong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "GTEdit", new { id = Model.MaGT }) |
+    @Html.ActionLink("Trở về", "GT")
+</p>

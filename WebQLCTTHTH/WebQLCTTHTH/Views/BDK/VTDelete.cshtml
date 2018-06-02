@@ -1,0 +1,33 @@
+﻿@model WebQLCTTHTH.Models.VongThi
+
+@{
+    ViewBag.Title = "Xóa Vòng Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Vòng Thi</h2>
+
+<h3>bạn có muốn xóa vòng thi này không?</h3>
+<div>
+    <h4>Vòng Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Vòng Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenVT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "VT")
+        </div>
+    }
+</div>

@@ -1,0 +1,70 @@
+﻿ @model IEnumerable<WebQLCTTHTH.Models.ThiSinh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTS.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HoTenTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NamSinhTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChiTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QueQuanTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NopPhi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTenTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamSinhTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChiTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QueQuanTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NopPhi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaTS }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaTS }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaTS })
+        </td>
+    </tr>
+}
+
+</table>

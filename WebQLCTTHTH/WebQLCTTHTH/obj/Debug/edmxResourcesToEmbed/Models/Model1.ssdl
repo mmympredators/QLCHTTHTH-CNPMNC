@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLCTTHTHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaiHat">
+    <Key>
+      <PropertyRef Name="MaBH" />
+    </Key>
+    <Property Name="MaBH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenBH" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nhac" Type="nvarchar" MaxLength="50" />
+    <Property Name="Loi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ma_CD" Type="int" />
+  </EntityType>
+  <EntityType Name="ChuDe">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCD" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CTTTDT">
+    <Key>
+      <PropertyRef Name="LT" />
+      <PropertyRef Name="Ma_NTT" />
+    </Key>
+    <Property Name="LT" Type="int" Nullable="false" />
+    <Property Name="Ma_NTT" Type="int" Nullable="false" />
+    <Property Name="SoTienTaiTro" Type="money" />
+    <Property Name="HinhThuQuangCao" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoaiQuangCao" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CTVT_DT">
+    <Key>
+      <PropertyRef Name="Ma_VT" />
+      <PropertyRef Name="LT" />
+    </Key>
+    <Property Name="Ma_VT" Type="int" Nullable="false" />
+    <Property Name="LT" Type="int" Nullable="false" />
+    <Property Name="DiaDiemThi" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThoiGianThi" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaDiemTap" Type="nvarchar" MaxLength="50" />
+    <Property Name="ThoiGianTap" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ma_GT" Type="int" />
+  </EntityType>
+  <EntityType Name="CTVT_TS">
+    <Key>
+      <PropertyRef Name="Ma_VT" />
+      <PropertyRef Name="SBD" />
+    </Key>
+    <Property Name="Ma_VT" Type="int" Nullable="false" />
+    <Property Name="SBD" Type="int" Nullable="false" />
+    <Property Name="BaiHatBB" Type="int" />
+    <Property Name="DiemBHBB" Type="int" />
+    <Property Name="BaiHatTC" Type="int" />
+    <Property Name="DiemBHTC" Type="int" />
+  </EntityType>
+  <EntityType Name="DotThi">
+    <Key>
+      <PropertyRef Name="LanThi" />
+    </Key>
+    <Property Name="LanThi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamThi" Type="nchar" MaxLength="4" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="GiaiThuong">
+    <Key>
+      <PropertyRef Name="MaGT" />
+    </Key>
+    <Property Name="MaGT" Type="int" Nullable="false" />
+    <Property Name="TenGiaiThuong" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoTienThuong" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NhaTaiTro">
+    <Key>
+      <PropertyRef Name="MaNTT" />
+    </Key>
+    <Property Name="MaNTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNTT" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaChiNTT" Type="nvarchar" MaxLength="100" />
+    <Property Name="EmailNTT" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ThiSinh">
+    <Key>
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="MaTS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenTS" Type="nvarchar" MaxLength="50" />
+    <Property Name="NamSinhTS" Type="date" />
+    <Property Name="GT" Type="nvarchar" MaxLength="10" />
+    <Property Name="DiaChiTS" Type="nvarchar" MaxLength="50" />
+    <Property Name="QueQuanTS" Type="nvarchar" MaxLength="50" />
+    <Property Name="HinhTS" Type="varchar" MaxLength="50" />
+    <Property Name="NopPhi" Type="bit" />
+  </EntityType>
+  <EntityType Name="VongThi">
+    <Key>
+      <PropertyRef Name="MaVT" />
+    </Key>
+    <Property Name="MaVT" Type="int" Nullable="false" />
+    <Property Name="TenVT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_BaiHat_ChuDe">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="0..1" />
+    <End Role="BaiHat" Type="Self.BaiHat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="BaiHat">
+        <PropertyRef Name="Ma_CD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTTTDT_DotThi">
+    <End Role="DotThi" Type="Self.DotThi" Multiplicity="1" />
+    <End Role="CTTTDT" Type="Self.CTTTDT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DotThi">
+        <PropertyRef Name="LanThi" />
+      </Principal>
+      <Dependent Role="CTTTDT">
+        <PropertyRef Name="LT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTTTDT_NhaTaiTro">
+    <End Role="NhaTaiTro" Type="Self.NhaTaiTro" Multiplicity="1" />
+    <End Role="CTTTDT" Type="Self.CTTTDT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhaTaiTro">
+        <PropertyRef Name="MaNTT" />
+      </Principal>
+      <Dependent Role="CTTTDT">
+        <PropertyRef Name="Ma_NTT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_DT_DotThi">
+    <End Role="DotThi" Type="Self.DotThi" Multiplicity="1" />
+    <End Role="CTVT_DT" Type="Self.CTVT_DT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DotThi">
+        <PropertyRef Name="LanThi" />
+      </Principal>
+      <Dependent Role="CTVT_DT">
+        <PropertyRef Name="LT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_DT_GiaiThuong">
+    <End Role="GiaiThuong" Type="Self.GiaiThuong" Multiplicity="0..1" />
+    <End Role="CTVT_DT" Type="Self.CTVT_DT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiaiThuong">
+        <PropertyRef Name="MaGT" />
+      </Principal>
+      <Dependent Role="CTVT_DT">
+        <PropertyRef Name="Ma_GT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_DT_VongThi">
+    <End Role="VongThi" Type="Self.VongThi" Multiplicity="1" />
+    <End Role="CTVT_DT" Type="Self.CTVT_DT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VongThi">
+        <PropertyRef Name="MaVT" />
+      </Principal>
+      <Dependent Role="CTVT_DT">
+        <PropertyRef Name="Ma_VT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_BaiHat">
+    <End Role="BaiHat" Type="Self.BaiHat" Multiplicity="0..1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaiHat">
+        <PropertyRef Name="MaBH" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="BaiHatBB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_BaiHat1">
+    <End Role="BaiHat" Type="Self.BaiHat" Multiplicity="0..1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BaiHat">
+        <PropertyRef Name="MaBH" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="BaiHatTC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_ThiSinh">
+    <End Role="ThiSinh" Type="Self.ThiSinh" Multiplicity="1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThiSinh">
+        <PropertyRef Name="MaTS" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="SBD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTVT_TS_VongThi">
+    <End Role="VongThi" Type="Self.VongThi" Multiplicity="1" />
+    <End Role="CTVT_TS" Type="Self.CTVT_TS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VongThi">
+        <PropertyRef Name="MaVT" />
+      </Principal>
+      <Dependent Role="CTVT_TS">
+        <PropertyRef Name="Ma_VT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="QLCTTHTHModelStoreContainer">
+    <EntitySet Name="BaiHat" EntityType="Self.BaiHat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuDe" EntityType="Self.ChuDe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTTTDT" EntityType="Self.CTTTDT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTVT_DT" EntityType="Self.CTVT_DT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTVT_TS" EntityType="Self.CTVT_TS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DotThi" EntityType="Self.DotThi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GiaiThuong" EntityType="Self.GiaiThuong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhaTaiTro" EntityType="Self.NhaTaiTro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThiSinh" EntityType="Self.ThiSinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VongThi" EntityType="Self.VongThi" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BaiHat_ChuDe" Association="Self.FK_BaiHat_ChuDe">
+      <End Role="ChuDe" EntitySet="ChuDe" />
+      <End Role="BaiHat" EntitySet="BaiHat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTTTDT_DotThi" Association="Self.FK_CTTTDT_DotThi">
+      <End Role="DotThi" EntitySet="DotThi" />
+      <End Role="CTTTDT" EntitySet="CTTTDT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTTTDT_NhaTaiTro" Association="Self.FK_CTTTDT_NhaTaiTro">
+      <End Role="NhaTaiTro" EntitySet="NhaTaiTro" />
+      <End Role="CTTTDT" EntitySet="CTTTDT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_DT_DotThi" Association="Self.FK_CTVT_DT_DotThi">
+      <End Role="DotThi" EntitySet="DotThi" />
+      <End Role="CTVT_DT" EntitySet="CTVT_DT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_DT_GiaiThuong" Association="Self.FK_CTVT_DT_GiaiThuong">
+      <End Role="GiaiThuong" EntitySet="GiaiThuong" />
+      <End Role="CTVT_DT" EntitySet="CTVT_DT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_DT_VongThi" Association="Self.FK_CTVT_DT_VongThi">
+      <End Role="VongThi" EntitySet="VongThi" />
+      <End Role="CTVT_DT" EntitySet="CTVT_DT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_BaiHat" Association="Self.FK_CTVT_TS_BaiHat">
+      <End Role="BaiHat" EntitySet="BaiHat" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_BaiHat1" Association="Self.FK_CTVT_TS_BaiHat1">
+      <End Role="BaiHat" EntitySet="BaiHat" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_ThiSinh" Association="Self.FK_CTVT_TS_ThiSinh">
+      <End Role="ThiSinh" EntitySet="ThiSinh" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTVT_TS_VongThi" Association="Self.FK_CTVT_TS_VongThi">
+      <End Role="VongThi" EntitySet="VongThi" />
+      <End Role="CTVT_TS" EntitySet="CTVT_TS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

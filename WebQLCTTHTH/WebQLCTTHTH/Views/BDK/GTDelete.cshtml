@@ -1,0 +1,41 @@
+﻿@model WebQLCTTHTH.Models.GiaiThuong
+
+@{
+    ViewBag.Title = "Xóa Giải Thưởng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Giải Thưởng</h2>
+
+<h3>Bạn có muốn xóa giải thưởng này?</h3>
+<div>
+    <h4>Giải Thưởng</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Giải Thưởng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGiaiThuong)
+        </dd>
+
+        <dt>
+            Số Tiền Thưởng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTienThuong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "GT")
+        </div>
+    }
+</div>

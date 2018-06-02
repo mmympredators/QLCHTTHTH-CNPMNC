@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.CTTTDT>
+
+@{
+    ViewBag.Title = "Chi tiết Tài trợ Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Tài Trợ Đợt Thi</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "CTTTDTCreate")
+</p>
+<table id="table" class="display">
+    <thead>
+    <tr>
+        <th>
+            Năm Thi
+        </th>
+        <th>
+            Tên Nhà Tài Trợ
+        </th>
+        <th>
+            Số tiền Tài Trợ
+        </th>
+        <th>
+            Hình Thức Quảng Cáo
+        </th>
+        <th>
+            Loại Quảng Cáo
+        </th>
+        <th></th>
+    </tr>
+        </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DotThi.NamThi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhaTaiTro.TenNTT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTienTaiTro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HinhThuQuangCao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiQuangCao)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "CTTTDTEdit", new { id=item.MaCTTTDT }) |
+            @Html.ActionLink("Chi tiết", "CTTTDTDetails", new { id=item.MaCTTTDT }) |
+            @Html.ActionLink("Xóa", "CTTTDTDelete", new { id=item.MaCTTTDT })
+        </td>
+    </tr>
+}
+        </tbody>
+</table>

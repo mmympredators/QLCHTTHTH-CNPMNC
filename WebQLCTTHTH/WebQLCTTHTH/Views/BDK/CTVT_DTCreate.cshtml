@@ -1,0 +1,84 @@
+﻿@model WebQLCTTHTH.Models.CTVT_DT
+
+@{
+    ViewBag.Title = "Tạo mới chi tiết vòng thi - đợt thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tạo mới chi tiết vòng thi - đợt thi</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Chi tiết vòng thi - đợt thi</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p>Mã Vòng Thi</p>
+            <div class="col-md-10">
+                <input type="text" name="Ma_TV" required>
+                @Html.ValidationMessageFor(model => model.Ma_VT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Lần Thi</p>
+            <div class="col-md-10">
+                <input type="text" name="LT" required>
+                @Html.ValidationMessageFor(model => model.LT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Địa Điểm Thi</p>
+            <div class="col-md-10">
+                <input type="text" name="DiaDiemThi" required>
+                @Html.ValidationMessageFor(model => model.DiaDiemThi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Thời Gian Thi</p>
+            <div class="col-md-10">
+                <input type="date" name="ThoiGianThi" required>
+                @Html.ValidationMessageFor(model => model.ThoiGianThi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Địa Điểm Tập</p>
+            <div class="col-md-10">
+                <input type="text" name="DiaDiemTap" required>
+                @Html.ValidationMessageFor(model => model.DiaDiemTap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Thời Gian Tập</p>
+            <div class="col-md-10">
+                <input type="date" name="ThoiGianTap" required>
+                @Html.ValidationMessageFor(model => model.ThoiGianTap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Mã Giải Thưởng</p>
+            <div class="col-md-10">
+                <input type="text" name="Ma_GT" required>
+                @Html.ValidationMessageFor(model => model.Ma_GT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở Về", "CTVT_DT")
+</div>

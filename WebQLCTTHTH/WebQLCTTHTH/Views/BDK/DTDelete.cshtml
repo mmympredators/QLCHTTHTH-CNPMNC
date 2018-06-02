@@ -1,0 +1,41 @@
+﻿@model WebQLCTTHTH.Models.DotThi
+
+@{
+    ViewBag.Title = "Xóa Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Đợt Thi</h2>
+
+<h3>Bạn có muốn xóa đợt thi này không?</h3>
+<div>
+    <h4>Đợt Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Năm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamThi)
+        </dd>
+
+        <dt>
+            Nội Dung
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "DT")
+        </div>
+    }
+</div>

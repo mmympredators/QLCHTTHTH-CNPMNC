@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed93ea1e228147a687627fb8f5bd4974" Name="Diagram1">
+        <EntityTypeShape EntityType="QLCTTHTHModel.BaiHat" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.ChuDe" Width="1.5" PointX="1.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.CTTTDT" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.CTVT_DT" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.CTVT_TS" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.DotThi" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.GiaiThuong" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.NhaTaiTro" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.sysdiagram" Width="1.5" PointX="5.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.ThiSinh" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLCTTHTHModel.VongThi" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_BaiHat_ChuDe" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_TS_BaiHat" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_TS_BaiHat1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTTTDT_DotThi" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTTTDT_NhaTaiTro" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_DT_DotThi" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_DT_GiaiThuong" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_DT_VongThi" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_TS_ThiSinh" ManuallyRouted="false" />
+        <AssociationConnector Association="QLCTTHTHModel.FK_CTVT_TS_VongThi" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

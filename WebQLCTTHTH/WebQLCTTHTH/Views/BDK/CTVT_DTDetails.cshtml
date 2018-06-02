@@ -1,0 +1,75 @@
+﻿@model WebQLCTTHTH.Models.CTVT_DT
+
+@{
+    ViewBag.Title = "Chi tiết Vòng Thi - Đợt Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi tiết Vòng Thi - Đợt Thi</h2>
+
+<div>
+    <h4>Chi tiết Vòng Thi - Đợt Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Vòng Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VongThi.TenVT)
+        </dd>
+
+        <dt>
+            Năm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DotThi.NamThi)
+        </dd>
+
+        <dt>
+            Địa Điểm Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaDiemThi)
+        </dd>
+
+        <dt>
+            Thời Gian Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianThi)
+        </dd>
+
+        <dt>
+            Địa Điểm Tập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaDiemTap)
+        </dd>
+
+        <dt>
+            Thời Gian Tập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianTap)
+        </dd>
+
+        <dt>
+            Tên Giải Thưởng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaiThuong.TenGiaiThuong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "CTVT_DTEdit", new { id = Model.MaCTVT_DT }) |
+    @Html.ActionLink("Trở về", "CTVT_DT")
+</p>

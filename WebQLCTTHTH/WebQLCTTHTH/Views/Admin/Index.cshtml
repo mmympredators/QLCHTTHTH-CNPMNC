@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Đây là trang Admin</h2>
+<div>
+<h3> Ban Giám Khảo </h3>
+@Html.Action("Index", "BGK")
+<h3> Ban Đăng Kiểm </h3>
+@Html.Action("Index", "BDK")
+<h3> Ban Vận Động </h3>
+@Html.Action("Index", "BVD")
+    </div>
+

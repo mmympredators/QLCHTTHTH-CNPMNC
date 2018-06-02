@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebQLCTTHTH.Models.GiaiThuong>
+
+@using WebQLCTTHTH.Models;
+@{
+    ViewBag.Title = "Giải Thưởng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Giải Thưởng</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "GTCreate")
+</p>
+<table id="table" class="display">
+    <thead>
+    <tr>
+        <th>
+            Tên Giải thưởng
+        </th>
+        <th>
+            Số Tiền Thưởng
+        </th>
+        <th></th>
+    </tr>
+        </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenGiaiThuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoTienThuong)
+            </td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "GTEdit", new { id = item.MaGT }) |
+                @Html.ActionLink("Chi Tiết", "GTDetails", new { id = item.MaGT }) |
+                @Html.ActionLink("Xóa", "GTDelete", new { id = item.MaGT })
+            </td>
+        </tr>
+    }
+        </tbody>
+</table>

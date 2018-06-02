@@ -1,0 +1,27 @@
+﻿@model WebQLCTTHTH.Models.VongThi
+
+@{
+    ViewBag.Title = "Chi Tiết Vòng Thi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chi Tiết Vòng Thi</h2>
+
+<div>
+    <h4>Vòng Thi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Vòng Thi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenVT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "VTEdit", new { id = Model.MaVT }) |
+    @Html.ActionLink("Trở về", "VT")
+</p>

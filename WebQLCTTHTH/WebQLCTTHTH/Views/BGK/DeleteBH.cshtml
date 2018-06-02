@@ -1,0 +1,57 @@
+﻿@model WebQLCTTHTH.Models.BaiHat
+
+@{
+    ViewBag.Title = "Xóa Bài Hát";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Xóa Bài Hát</h2>
+
+<h3>Bạn có muốn xóa bài hát này không?</h3>
+<div>
+    <h4>Bài Hát</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên bài Hát
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBH)
+        </dd>
+
+        <dt>
+            Nhạc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhac)
+        </dd>
+
+        <dt>
+            Lời
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loi)
+        </dd>
+
+        <dt>
+            Tên Chủ Đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuDe.TenCD)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "BaiHat")
+        </div>
+    }
+</div>
